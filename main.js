@@ -1,6 +1,6 @@
 const poke_container = document.getElementById('container');
 const count = 100;
-const pokemonCardColors = {
+const colors = {
   flying: "#F5F5F5",
   fire: "#FF6D5E",
   water: "#4A90DA",
@@ -18,6 +18,9 @@ const pokemonCardColors = {
   dragon: "#4A5AC4",
   normal: "#9298A3"
 };
+const main_type=Object.keys(colors)
+console.log(main_type)
+
 
 async function fetchpokemon() {
   for (let i = 1; i <= count; i++) {
@@ -33,8 +36,14 @@ async function getPokemon(id) {
   createPokemon(data, id); // Pass the 'id' to the createPokemon function
 }
 
-function createPokemon(pokemon, id) {
+function createPokemon(pokemon, id) 
+{
+  const name=pokemon.name[0].toUpperCase()+pokemon.name.slice(1);
   const pokemonel = document.createElement('div');
+  const type=pokemon.types[0].type.name;
+  //backgoud changein'
+  const bg=colors[type];
+  pokemonel.style.backgroundColor=bg;
   pokemonel.classList.add('pokemon');
   console.log(pokemon.name);
   const innerhtml = `
@@ -43,8 +52,8 @@ function createPokemon(pokemon, id) {
     </div>
     <div class="info">
         <span class="number">#${id}</span>
-        <h3 class="name">${pokemon.name}</h3>
-        <small class="type">Type: <span>${pokemon.types[0].type.name}</span></small>
+        <h3 class="name">${name}</h3>
+        <small class="type">Type: <span>${type}</span></small>
     </div>
   `;
   pokemonel.innerHTML = innerhtml;

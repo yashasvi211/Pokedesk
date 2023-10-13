@@ -18,7 +18,7 @@ h1 {
     letter-spacing: 3px;
 }
 
-.poke-container {
+.container {
     display: flex;
     flex-wrap: wrap;
     align-items:space-between;
@@ -39,13 +39,14 @@ h1 {
 {
     background-color: rgba(255,255,255,0.6);
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     text-align: center;
-}
+} 
 .pokemon .img-container img{
-    max-width: 90%;
-    margin-top: 20px;
+    max-width: 80%;
+    margin-top: 15px;
+    margin-right:4px;
 }
 .pokemon .info
 {
